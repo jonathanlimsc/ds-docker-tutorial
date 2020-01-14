@@ -1,7 +1,5 @@
 # Data Science Docker Tutorial
 
-
-
 ## Introduction
 
 This is a simple example repository demonstrating the concepts behind Dockerizing a data science model into a production API. It is by no means production-ready since there are missing elements such as parameter hot-swapping, handling timeouts, logging, monitoring, authentication and security encryption. 
