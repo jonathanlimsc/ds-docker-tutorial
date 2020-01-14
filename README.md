@@ -72,12 +72,12 @@ A Dockerfile creates a custom image in successive layers.
 
 | Command | Meaning |
 | --- | --- |
-| FROM <base_image_name> | Use the stated base image to build this custom image |
-| RUN <linux command> | Execute the Linux command in the image |
-| WORKDIR <directory> | Make stated directory the current working directory in the image |
-| COPY <src dir> <dest dir> | Copy file(s) from source directory on host to destination directory in the image |
-| EXPOSE <port> | Expose the port of the container |
-| CMD <command / array of commands > | Execute commands at the time of running the container |
+| FROM `<base_image_name>` | Use the stated base image to build this custom image |
+| RUN `<linux command>` | Execute the Linux command in the image |
+| WORKDIR `<directory>` | Make stated directory the current working directory in the image |
+| COPY `<src dir> <dest dir>` | Copy file(s) from source directory on host to destination directory in the image |
+| EXPOSE `<port>` | Expose the port of the container |
+| CMD `<command / array of commands >` | Execute commands at the time of running the container |
 
 - Minimize the duration of image build by making sure package installation happens early, and file copying happens later.
 - Minimize the size of the Docker image by reducing the number of layers in the image
@@ -100,8 +100,8 @@ docker build -f ./src/simple_model_server/Dockerfile -t simple_model_server .
 ```
 | Flag | Meaning |
 | --- | --- |
-| -f | Path to Dockerfile |
-| -t | Name to tag image |
+| -f <Dockerfile path> | Path to Dockerfile |
+| -t <name> | Name to tag image |
 | . | Path to build context |
 
 Build context is directory that refers to host's `./` in the Dockerfile (e.g. in `COPY ./* ./container_dir`), you will be copying every file in the build context dir to `./container_dir` in the container.
@@ -115,7 +115,7 @@ docker run -it -p 10000:10000 simple_model_server
 | Flag | Meaning |
 | --- | --- |
 | -it| Interactive mode |
-| -p <host_port>:<container_port> | Forwards host port to container port |
+| -p `<host_port>:<container_port>` | Forwards host port to container port |
 
 ### Test that the API works
 
@@ -198,9 +198,7 @@ docker-compose -f ./docker-compose.yml build
 ```
 | Flag | Meaning |
 | --- | --- |
-| -f | Path to Dockerfile |
-| -t | Name to tag image |
-| . | Path to build context |
+| -f <Dockerfile path> | Path to docker-compose.yml file |
 
 Build context is directory that refers to host's `./` in the Dockerfile (e.g. in `COPY ./* ./container_dir`), you will be copying every file in the build context dir to `./container_dir` in the container.
 
@@ -213,8 +211,8 @@ docker-compose -f docker-compose.yml -p docker-tutorial up --scale model_server=
 ```
 | Flag | Meaning |
 | --- | --- |
-| -f | Path to docker-compose file |
-| -p | Prefix for container names when running them |
+| -f `<docker-compose file path>` | Path to docker-compose file |
+| -p `<name>` | Prefix for container names when running them |
 | --scale `<service>=<number>` | Scales the relevant service to the desired number of copies |
 | -d | Run the containers in the background and return control to terminal |
 
