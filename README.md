@@ -189,7 +189,7 @@ Now we have multiple containers, so we have a `http_server`, `redis_server` and 
 | environment | Specify environment variables and their values |
 | volumes | Mounts host directory to container directory for container persistence |
 
-Refer to `./docker-compose.yml`
+Refer to `./docker-compose.yml`. Environment variables in `docker-compose.yml` can be inferred from `.env`
 
 ### Build images
 ```
