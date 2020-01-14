@@ -100,8 +100,8 @@ docker build -f ./src/simple_model_server/Dockerfile -t simple_model_server .
 ```
 | Flag | Meaning |
 | --- | --- |
-| -f <Dockerfile path> | Path to Dockerfile |
-| -t <name> | Name to tag image |
+| -f `<Dockerfile path>` | Path to Dockerfile |
+| -t `<name>` | Name to tag image |
 | . | Path to build context |
 
 Build context is directory that refers to host's `./` in the Dockerfile (e.g. in `COPY ./* ./container_dir`), you will be copying every file in the build context dir to `./container_dir` in the container.
@@ -198,7 +198,7 @@ docker-compose -f ./docker-compose.yml build
 ```
 | Flag | Meaning |
 | --- | --- |
-| -f <Dockerfile path> | Path to docker-compose.yml file |
+| -f `<docker-compose.yml path>` | Path to docker-compose.yml file |
 
 Build context is directory that refers to host's `./` in the Dockerfile (e.g. in `COPY ./* ./container_dir`), you will be copying every file in the build context dir to `./container_dir` in the container.
 
