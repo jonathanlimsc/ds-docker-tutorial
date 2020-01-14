@@ -1,0 +1,35 @@
+version: '2.3'
+services:
+  http_server:
+    build:
+      context: .
+      dockerfile: ./src/http_server/Dockerfile
+    image: http_server:latest
+    ### For mounting volumes from local directory to directory in the container
+    #volumes:
+    #  - ${PROD_HOST_LOG_DIR}:${PROD_CONTAINER_LOG_DIR}
+    ports:
+      - "${PROD_EXTERNAL_HTTP_PORT}:10000" # Variable defined in .env file
+    restart: always # no, always, on-failure, unless-stopped
+    depends_on:
+      - redis_server
+
+  redis_server:
+    image: redis:latest
+    restart: always
+    expose:
+      - "${PROD_REDIS_PORT}"
+
+  model_server:
+    build:
+      context: .
+      dockerfile: ./src/model_server/Dockerfile
+    image: model_server:latest
+    ### For GPU usage with nvidia-docker runtime:
+    #runtime: nvidia
+    ### Environment variables
+    #environment:
+      #- NVIDIA_VISIBLE_DEVICES=0
+    restart: always
+    depends_on:
+      - redis_server
