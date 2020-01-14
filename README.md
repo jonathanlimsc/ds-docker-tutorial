@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a simple example repository demonstrating the concepts behind Dockerizing a data science model into a production API. It is by no means production-ready since there are missing elements such as parameter hot-swapping, handling timeouts, logging, monitoring, authentication and security encryption. 
+This is a simple example repository demonstrating the concepts behind Dockerizing a data science model into a production API. It is by no means production-ready since there are missing elements such as parameter hot-swapping, handling timeouts, logging, monitoring, authentication and security encryption. It is generally not a good practice to be committing the model into the code repository as well, but should be stored elsewhere such as Git LFS (Large File System) or cloud storage. 
 
 The use of libraries in this repository such as Flask and Redis make no opinion on what tools you should use. You should use your project requirements and decide the best tools to use depending on factors such as development work, maintainability, performance etc.
 
